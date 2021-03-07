@@ -17,15 +17,15 @@ module.exports = {
         },
         {
             name: 'Información',
-            value: '`help` | `helpinfo`',
+            value: '`help` | `helpinfo` | `social`',
         },
         {
             name: 'Diversión',
-            value: '`howsimp` | `ppt` | `meme`',
+            value: '`snipe` | `bonk` | `simp` | `ppt` | `meme`',
         },
         {
             name: 'Moderación',
-            value: '`ban` | `kick`',
+            value: '`ban` | `kick` | `purge`',
         },)
 
         message.channel.send(help)

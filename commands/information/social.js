@@ -24,5 +24,8 @@ module.exports = {
         .addField('Wattpad oficial de Laraartss_', 'Sígueme para leer mis libros e historias que subo en esta plataforma')
         .setTimestamp()
         .setFooter('laraartss', 'https://img.wattpad.com/useravatar/laraartss.128.1831.jpg');
+
+        await message.channel.send(instagramEmbed)
+        await message.channel.send(wattpadEmbed)
     }
 }
