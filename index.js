@@ -1,16 +1,14 @@
 const Discord = require('discord.js');
-
 const bot = new Discord.Client();
-
 require("dotenv").config();
-
 const { readdirSync } = require('fs');
-
 const { join } = require('path');
 const { runInContext } = require('vm');
-
 bot.commands = new Discord.Collection();
-
+bot.snipes = new Discord.Collection();
+const newUsers = new Discord.Collection();
+const sniped = require("./events/messageDelete.js")
+sniped(bot)
 const prefix = 'b!';
 
 //-------------------------------------------------------------------------------
@@ -37,8 +35,9 @@ for (const file of commandFiles) {
 }
 //-----------------------------------------------------------------------------
 
-
 bot.on("error", console.error);
+
+//-----------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------
 bot.on('ready', () => {
@@ -76,5 +75,23 @@ bot.on("message", async message => {
         }
     }
 })
+
+//WELCOME MESSAGE
+
+bot.on('guildMemberAdd', async(member) => {
+    const Channel = member.guild.channels.cache.get('814169775994699809')
+    const Rules = member.guild.channels.cache.get('814170191285846026')
+    Channel.send(`¡Bienvenid@ al servidor de Discord de Laraartss: Dragón Blanco Dragón Negro, <@${member.id}>! Por favor, lee el canal de ${member.guild.channels.cache.get(Rules).toString()} y reacciona al ✅ del mensaje para desbloquear los canales`)
+})
+
+//GOODBYE MESSAGE
+
+bot.on('guildMemberRemove', async(member) => {
+    const Channel = member.guild.channels.cache.get('814169775994699809')
+    const Rules = member.guild.channels.cache.get('814170191285846026')
+    Channel.send(`<@${member.id}> se ha ido del servidor /(ㄒoㄒ)/~~`) //${member.displayName}
+})
+
+//----------------------------------------------------------------
 
 bot.login(process.env.DISCORD_TOKEN);
