@@ -12,6 +12,9 @@
     "discord.js": "^12.5.1",
     "discord.js-pagination": "^1.0.3",
     "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.19",
+    "ping-monitor": "^0.6.1",
     "random-puppy": "^1.1.0"
   }
 }

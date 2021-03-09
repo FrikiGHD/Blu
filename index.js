@@ -1,17 +1,19 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-require("dotenv").config();
+const prefix = 'b!';
 const { readdirSync } = require('fs');
 const { join } = require('path');
 const { runInContext } = require('vm');
-bot.commands = new Discord.Collection();
-bot.snipes = new Discord.Collection();
 const newUsers = new Discord.Collection();
 const sniped = require("./events/messageDelete.js")
+const mongoose = require('mongoose');
+bot.commands = new Discord.Collection();
+bot.snipes = new Discord.Collection();
+require("dotenv").config();
 sniped(bot)
-const prefix = 'b!';
 
 //-------------------------------------------------------------------------------
+
 function readFiles(dir) {
     const paths = readdirSync(dir, { withFileTypes: true });
 
@@ -39,7 +41,7 @@ bot.on("error", console.error);
 
 //-----------------------------------------------------------------------------
 
-//-----------------------------------------------------------------------------
+//READY CONSOLE - STATUS//
 bot.on('ready', () => {
     console.log('El bot está listo');
 
@@ -56,7 +58,8 @@ bot.on('ready', () => {
         index++;
     }, 10000) //en ms
 })
-//-----------------------------------------------------------------------------
+
+//BOT.ON MESSAGE//
 bot.on("message", async message => {
     if(message.author.bot) return;
     if(message.channel.type === 'dm') return;
@@ -76,11 +79,13 @@ bot.on("message", async message => {
     }
 })
 
+//-----------------------------------------------------------------
+
 //WELCOME MESSAGE
 
 bot.on('guildMemberAdd', async(member) => {
     const Channel = member.guild.channels.cache.get('814169775994699809')
-    const Rules = member.guild.channels.cache.get('814170191285846026')
+    const Rules = '814170191285846026'
     Channel.send(`¡Bienvenid@ al servidor de Discord de Laraartss: Dragón Blanco Dragón Negro, <@${member.id}>! Por favor, lee el canal de ${member.guild.channels.cache.get(Rules).toString()} y reacciona al ✅ del mensaje para desbloquear los canales`)
 })
 
@@ -94,4 +99,24 @@ bot.on('guildMemberRemove', async(member) => {
 
 //----------------------------------------------------------------
 
+//MONITOR//
+
+const keepAlive = require('./server');
+const Monitor = require('ping-monitor');
+ 
+keepAlive();
+const monitor = new Monitor({
+    website: 'LINK',
+    title: 'Nombre',
+    interval: 30 // minutes
+});
+ 
+monitor.on('up', (res) => console.log(`${res.website} está encedido.`));
+monitor.on('down', (res) => console.log(`${res.website} se ha caído - ${res.statusMessage}`));
+monitor.on('stop', (website) => console.log(`${website} se ha parado.`) );
+monitor.on('error', (error) => console.log(error));
+
+//-----------------------------------------------------
+
+//TOKEN//
 bot.login(process.env.DISCORD_TOKEN);
