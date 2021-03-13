@@ -25,7 +25,7 @@ module.exports = {
         },
         {
             name: 'Moderación',
-            value: '`ban` | `kick` | `purge`',
+            value: '`ban` | `kick` | `warn` | `purge`',
         },)
 
         message.channel.send(help)

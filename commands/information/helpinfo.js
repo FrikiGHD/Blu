@@ -35,6 +35,7 @@ module.exports = {
         .setTitle('Moderación (solo moderadores)')
         .addField('`b!kick`', 'Expulsa a un usuario | `Formato: b!kick @usuario razón`')
         .addField('`b!ban`', 'Banea a un usuario | `Formato: b!ban @usuario razón`')
+        .addField('`b!warn`', 'Advierte a un usuario | `Formato: b!warn @usuario razón`')
         .addField('`b!purge`', 'Elimina un número de mensajes de un canal | `Formato: b!purge (número entero del 2-100)`')
 
         const Pages = [
