@@ -17,11 +17,11 @@ module.exports = {
         },
         {
             name: '__Otakus__',
-            value: 'Rol para los amantes de anime | <:video_game:821455221511159879>'
+            value: 'Rol para los amantes de anime | <:shinto_shrine:821455259754037308>'
         },
         {
             name: '__Gamers__',
-            value: 'Rol para los gamers del servidor | <:shinto_shrine:821455259754037308>'
+            value: 'Rol para los gamers del servidor | <:video_game:821455221511159879>'
         })
         .setImage('https://i.imgur.com/JRfJzHY.png')
         await message.channel.send(roles)
