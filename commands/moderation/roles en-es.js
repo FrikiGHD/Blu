@@ -12,11 +12,11 @@ module.exports = {
         .setDescription('Selecciona una reacción para obtener el rol según tu idioma \n Select a reaction to get the role according to your language')
         .addFields({
             name: 'Español',
-            value: 'Elige este si hablas español  <:flag_es:821438218066460702>'
+            value: 'Elige este si hablas español | <:flag_es:821438218066460702>'
         },
         {
             name: 'English',
-            value: 'Choose this one if you speak english <:flag_us:821438565807947856>'
+            value: 'Choose this one if you speak english | <:flag_us:821438565807947856>'
         })
 
         await message.channel.send(roleslang)
