@@ -13,15 +13,15 @@ module.exports = {
         .setDescription('Selecciona un rol reaccionando al emoji correspondiente \n (y desbloquear los canales ocultos de cada categoría)')
         .addFields({
             name: '__Artistas__',
-            value: 'Rol para los dibujantes del server  `🎨`'
+            value: 'Rol para los dibujantes del server | <:art:821455204116463667>'
         },
         {
             name: '__Otakus__',
-            value: 'Rol para los amantes de anime  `⛩`'
+            value: 'Rol para los amantes de anime | <:video_game:821455221511159879>'
         },
         {
             name: '__Gamers__',
-            value: 'Rol para los gamers del servidor `🎮`'
+            value: 'Rol para los gamers del servidor | <:shinto_shrine:821455259754037308>'
         })
         .setImage('https://i.imgur.com/JRfJzHY.png')
         await message.channel.send(roles)
