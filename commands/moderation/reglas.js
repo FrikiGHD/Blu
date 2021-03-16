@@ -9,7 +9,6 @@ module.exports = {
         if (!member.roles.cache.some(role => role.name === 'MODERADOR')) return message.channel.send("No puedes usar este comando （︶^︶）");
 
         const reglas = new Discord.MessageEmbed()
-        .setAuthor('Blu', 'https://i.imgur.com/xUyn9J9.png')
         .setTitle('**REGLAS DE DRAGÓN BLANCO DRAGÓN NEGRO**')
         .setColor('0xE97E1F')
         .addFields(

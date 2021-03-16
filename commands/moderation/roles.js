@@ -5,11 +5,9 @@ module.exports = {
     description: "crear roles para los canales ocultos",
 
     async run (bot, message, args) {
-
-        if (!member.roles.cache.some(role => role.name === 'MODERADOR')) return message.channel.send("No puedes usar este comando （︶^︶）");
+        if (!message.member.roles.cache.has('814171986598690857')) return message.channel.send("No puedes usar este comando （︶^︶）");
 
         const roles = new Discord.MessageEmbed()
-        .setAuthor('Blu', 'https://i.imgur.com/xUyn9J9.png')
         .setTitle('Roles')
         .setDescription('Selecciona un rol reaccionando al emoji correspondiente \n (y desbloquear los canales ocultos de cada categoría)')
         .addFields({
