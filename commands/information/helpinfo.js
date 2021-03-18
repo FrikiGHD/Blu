@@ -25,7 +25,7 @@ module.exports = {
         .setColor(0xC78E1D)
         .setTitle('Diversión')
         .addField('`b!snipe`', 'Recupera un mensaje eliminado recientemente por un usuario')
-        .addField('`b!bonk`', 'Me envía a darle bonk al usuario que menciones | `Formato: b!bonk @usuario`')
+        .addField('`b!bonk`', 'Me envía a darle bonk al usuario que menciones | [Formato: b!bonk @usuario]')
         .addField('`b!simp`', 'Muestra cuan simp eres')
         .addField('`b!ppt`', 'Sirve para jugar a piedra, papel y tijieras')
         .addField('`b!meme`', 'Muestra un meme aleatorio')
@@ -33,10 +33,11 @@ module.exports = {
         const Moderation = new Discord.MessageEmbed()
         .setColor(0x52116F)
         .setTitle('Moderación (solo moderadores)')
-        .addField('`b!kick`', 'Expulsa a un usuario | `Formato: b!kick @usuario razón`')
-        .addField('`b!ban`', 'Banea a un usuario | `Formato: b!ban @usuario razón`')
-        .addField('`b!warn`', 'Advierte a un usuario | `Formato: b!warn @usuario razón`')
-        .addField('`b!purge`', 'Elimina un número de mensajes de un canal | `Formato: b!purge (número entero del 2-100)`')
+        .addField('`b!kick`', 'Expulsa a un usuario | [Formato: b!kick @usuario razón]')
+        .addField('`b!ban`', 'Banea a un usuario | [Formato: b!ban @usuario razón]')
+        .addField('`b!warn`', 'Advierte a un usuario | [Formato: b!warn @usuario razón]')
+        .addField('`b!purge`', 'Elimina un número de mensajes de un canal | \n [Formato: b!purge (número entero del 2-100)]')
+        .addField('`b!mute & b!unmute`', 'Mutea y desmutea a un usuario | [Formato: b!mute @usuario razón]')
 
         const Pages = [
             BotInfo,

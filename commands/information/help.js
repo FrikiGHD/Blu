@@ -8,8 +8,8 @@ module.exports = {
 
         const help = new Discord.MessageEmbed()
         .setColor("RANDOM")
-        .setTitle('Prefijo - `b!`')
-        .setAuthor('Lista de comandos')
+        .setTitle('Prefijo - `b!` / Prefix - `b!`')
+        .setAuthor('Lista de comandos / Command list')
 
         .addFields({
             name: 'Importante',
@@ -25,7 +25,7 @@ module.exports = {
         },
         {
             name: 'Moderación',
-            value: '`ban` | `kick` | `warn` | `purge`',
+            value: '`ban` | `kick` | `warn` | `purge` | `mute & unmute`',
         },)
 
         message.channel.send(help)
