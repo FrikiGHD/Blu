@@ -24,13 +24,13 @@ module.exports = {
             {name: '__Regla 4__', value: 'Haz caso a los administradores / moderadores.'},
             {name: '__Regla 5__', value: 'No sofoques a base de menciones, es molesto.'},
             {name: '__Regla 6__', value: 'No hagas spam sobre apps, sitios, etc.'},
-            {name: '__Regla 7__', value: 'Y sobretodo, pásatelo bien ;3 \n \n Reacciona con ✅ para desbloquear los canales (si no funciona, escríbele a un moderador)'},);
+            {name: '__Regla 7__', value: 'Y sobretodo, pásatelo bien ;3 \n \n Reacciona con ✅ para desbloquear los canales\n(si no funciona, escríbele a un moderador)'},);
         
         const reglasen = new Discord.MessageEmbed()
         .setTitle('**SERVER RULES**')
         .setColor('0xE97E1F')
         .setThumbnail('https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/281/flag-united-states_1f1fa-1f1f8.png')
-        .setDescription(`Please read the rules. Not respecting these rules will lead you to get a warning (if you get three warns, you'll be kicked if admins find it necessary)`)
+        .setDescription(`Please read the rules. Not respecting these rules will lead you to get a warning (if you get three warnings, you will be kicked if the administrators find it necessary)`)
         .addFields(
             {name: '__Rule 1__', value: `Don't insult other members, you have to respect the others and their opinions.`},
             {name: '__Rule 2__', value: `Don't share inapropiate content, this is not a place to do so.`},
@@ -38,7 +38,7 @@ module.exports = {
             {name: '__Rule 4__', value: `Pay attention to administrators / moderators.`},
             {name: '__Rule 5__', value: `Don't spam mentions, it's annoying.`},
             {name: '__Rule 6__', value: `Don't spam apps, sites, etc.`},
-            {name: '__Rule 7__', value: `And most importantly, have fun ;3 \n \n React with ✅ to unlock channels (if it doesn't work, dm a moderator)`},);
+            {name: '__Rule 7__', value: `And most importantly, have fun ;3 \n \n React with ✅ to unlock channels\n(if it doesn't work, dm a moderator)`},);
 
         await message.channel.send(reglas).then(message.channel.send(reglases)).then(message.channel.send(reglasen));
     }

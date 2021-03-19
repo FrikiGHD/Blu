@@ -13,7 +13,7 @@ module.exports = {
         .setTitle('**PINGS**')
         .setColor('0x080606')
         .addField("🇪🇸 | Español", `Selecciona una reacción para obtener el rol y ser mencionado cuando se utilice en ${anuncios}`)
-        .addField("🇺🇸 | English", `Select a reaction to get the role and get mentioned when it's used in ${anuncios}`)
+        .addField("🇺🇸 | English", `Select a reaction to get the role and get mentioned when it's used in \n ${anuncios}`)
         .addFields({
             name: '__Curiosidades semanales__ | ⭐',
             value: "***ES*** - Rol para ser mencionado cuando se anuncien curiosidades semanales \n ***EN*** - Role to be mentioned when there's a weekly curiosities announcement"
