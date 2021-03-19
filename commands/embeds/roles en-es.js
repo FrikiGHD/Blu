@@ -9,14 +9,15 @@ module.exports = {
         if (!message.member.roles.cache.has('814171986598690857')) return message.channel.send("No puedes usar este comando （︶^︶）");
         const roleslang = new Discord.MessageEmbed()
         .setTitle('**IDIOMA / LANGUAGE**')
-        .setDescription('Selecciona una reacción para obtener el rol según tu idioma \n Select a reaction to get the role according to your language')
+        .addField("🇪🇸 | Español", `Selecciona una reacción para obtener el rol según tu idioma`)
+        .addField("🇺🇸 | English", `Select a reaction to get the role according to your language`)
         .addFields({
             name: '__Español__',
-            value: 'Elige este si hablas español | <:flag_es:821438218066460702>'
+            value: 'Elige este si hablas español | 🇪🇸'
         },
         {
             name: '__English__',
-            value: 'Choose this one if you speak english | <:flag_us:821438565807947856>'
+            value: 'Choose this one if you speak english | 🇺🇸'
         })
 
         await message.channel.send(roleslang)

@@ -7,20 +7,22 @@ module.exports = {
     async run (bot, message, args) {
 
         if (!message.member.roles.cache.has('814171986598690857')) return message.channel.send("No puedes usar este comando （︶^︶）");
-        const roleslang = new Discord.MessageEmbed()
+        const anuncios = bot.channels.cache.get('814240903316111391')
+        
+        const pings = new Discord.MessageEmbed()
         .setTitle('**PINGS**')
         .setColor('0x080606')
-        .addField("<:flag_es:821438218066460702> | Español", "Selecciona una reacción para obtener el rol para ser mencionado cuando se utilice para anuncios")
-        .addField("<:flag_us:821438565807947856> | English", "Select a reaction to get the role for being mentiones when it's used in announcments")
+        .addField("🇪🇸 | Español", `Selecciona una reacción para obtener el rol y ser mencionado cuando se utilice en ${anuncios}`)
+        .addField("🇺🇸 | English", `Select a reaction to get the role and get mentioned when it's used in ${anuncios}`)
         .addFields({
-            name: '__Curiosidades semanales__ | <:star:822191787040047145>',
-            value: "Rol para ser mencionado cuando se haga un anuncio de curiosidades semanales \n Role to be mentioned when there's an announcement of weekly curiosities"
+            name: '__Curiosidades semanales__ | ⭐',
+            value: "***ES*** - Rol para ser mencionado cuando se anuncien curiosidades semanales \n ***EN*** - Role to be mentioned when there's a weekly curiosities announcement"
         },
         {
-            name: '__Gamenights__ | <:joystick:822191135694651412>',
-            value: "Rol para ser mencionado cuando se haga un anuncio de noche de juegos \n Role to be mentioned when there's an announcement of gamenight"
+            name: '__Gamenights__ | 🕹️',
+            value: `***ES*** - Rol para ser mencionado cuando se haga un anuncio de "noche de juegos" \n ***EN*** - Role to be mentioned when there's a gamenight announcement`
         })
 
-        await message.channel.send(roleslang)
+        await message.channel.send(pings)
     }
 }
