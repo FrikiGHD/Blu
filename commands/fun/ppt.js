@@ -37,7 +37,7 @@ module.exports = {
                 (me === (paper) && reaction.emoji.name === (rock))) {
                     message.reply("Has perdido ( •̀ ω •́ )✧");
                 } else if (me === reaction.emoji.name) {
-                    return message.reply("¡Empate! ㄟ(U-U)ㄏ");
+                    return message.reply("¡Empate! ㄟ(︶-︶)ㄏ");
                 } else {
                     return message.reply("Has ganado （︶^︶）");
                 }
