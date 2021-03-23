@@ -11,7 +11,7 @@ module.exports = {
         
         const pings = new Discord.MessageEmbed()
         .setTitle('**PINGS**')
-        .setColor('0x080606')
+        .setColor('0xe18a44')
         .addField("🇪🇸 | Español", `Selecciona una reacción para obtener el rol y ser mencionado cuando se utilice en ${anuncios}`)
         .addField("🇺🇸 | English", `Select a reaction to get the role and get mentioned when it's used in \n ${anuncios}`)
         .addFields({
