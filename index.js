@@ -1,17 +1,38 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-const prefix = 'b!';
 const { readdirSync } = require('fs');
 const { join } = require('path');
 const { runInContext } = require('vm');
+const Levels = require('discord-xp');
 const newUsers = new Discord.Collection();
-const sniped = require("./events/messageDelete.js")
+const sniped = require("./events/messageDelete.js");
+const mongoose = require('./database/mongoose');
+mongoose.init();
+require("dotenv").config();
+bot.login(process.env.TOKEN);
+bot.on("error", console.error);
+bot.prefix = 'b!';
 bot.commands = new Discord.Collection();
 bot.snipes = new Discord.Collection();
-require("dotenv").config();
+Levels.setURL(`mongodb+srv://FrikiHD:${process.env.PASS}@blu.iaaoq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`);
 sniped(bot)
 
-//-------------------------------------------------------------------------------
+//EVENT HANDLER//
+
+const eventFiles = readdirSync('./events').filter(file => file.endsWith('.js'));
+
+for (const file of eventFiles) {
+	const event = require(`./events/${file}`);
+	if (event.once) {
+		bot.once(event.name, (...args) => event.execute(...args, bot));
+	} else {
+		bot.on(event.name, (...args) => event.execute(...args, bot));
+	}
+}
+
+//---------------------------------------------------
+
+//COMMAND HANDLER//
 
 function readFiles(dir) {
     const paths = readdirSync(dir, { withFileTypes: true });
@@ -33,51 +54,8 @@ for (const file of commandFiles) {
     const command = require(join(__dirname, file));
     bot.commands.set(command.name, command);
 }
-//-----------------------------------------------------------------------------
 
-bot.on("error", console.error);
-
-//-----------------------------------------------------------------------------
-
-//READY CONSOLE - STATUS//
-bot.on('ready', () => {
-    console.log('El bot está listo');
-
-    const arrayOfStatus = [
-        `Blu | b!help`,
-        `escondite con Nika o(^▽^)o`
-    ];
-
-    let index = 0;
-    setInterval(() => {
-        if(index === arrayOfStatus.length) index = 0;
-        const status = arrayOfStatus[index];
-        bot.user.setActivity(status, { type: "PLAYING" }).catch(console.error)
-        index++;
-    }, 10000) //en ms
-})
-
-//BOT.ON MESSAGE//
-bot.on("message", async message => {
-    if(message.author.bot) return;
-    if(message.channel.type === 'dm') return;
-
-    if(message.content.startsWith(prefix)) {
-        const args = message.content.slice(prefix.length).trim().split(/ +/);
-
-        const command = args.shift().toLowerCase();
-
-        if(!bot.commands.has(command)) return;
-
-        try {
-            bot.commands.get(command).run(bot, message, args);
-        } catch (error){
-            console.error(error);
-        }
-    }
-})
-
-//-----------------------------------------------------------------
+//---------------------------------------------------
 
 //WELCOME MESSAGE
 
@@ -94,7 +72,7 @@ bot.on('guildMemberAdd', async(member) => {
     .setColor('0x4c0424')
     .setTitle('Para empezar')
     .setURL('https://discord.gg/GyREVDhVX7')
-    .setDescription(`¡Bienvenido al servidor de Dragón Blanco Dragón Negro, <@${member.id}>! \n Nuestro servidor también se puede abreviar como "DBDN" y contiene una gran variedad de canales. \n Canales generales de texto y voz, canales de música, un lugar para hablar de vuestros intereses, preguntar por cosas del libro y ver noticias de éste y muchos más. \n También tenemos nuestros propios emojis originales y un bot personalizado llamado Blu con comandos útiles (usa "b!help" en el servidor para más información). \n \n Primero, comencemos a mirar los canales importantes en nuestro servidor, como nuestras ${reglas}), obtengamos ${(roles)} para desbloquear canales ocultos y revisemos las nuevas noticias en ${anuncios}.`)
+    .setDescription(`¡Bienvenido al servidor de Dragón Blanco Dragón Negro, <@${member.id}>! \n Nuestro servidor también se puede abreviar como "DBDN" y contiene una gran variedad de canales. \n Canales generales de texto y voz, canales de música, un lugar para hablar de vuestros intereses, preguntar por cosas del libro y ver noticias de éste y muchos más. \n También tenemos nuestros propios emojis originales y un bot personalizado llamado Blu con comandos útiles (usa "b!help" en el servidor para más información). \n \n Primero, comencemos a mirar los canales importantes en nuestro servidor, como nuestras ${reglas}, obtengamos ${roles} para desbloquear canales ocultos y revisemos las nuevas noticias en ${anuncios}.`)
     .addField('**¿Necesitas ayuda?**', '¿Tienes algún problema relacionado con el servidor y no sabes como solucionarlo? Manda un mensaje a alguien con el rol de moderador para que te ayude')
     .addField('**Redes sociales**', 'Si quieres saber las redes sociales de Laraartss dónde sube contenido de DBDN, usa el comando "b!social" en uno de los canales del servidor.')
     .setTimestamp()
@@ -130,6 +108,3 @@ monitor.on('stop', (website) => console.log(`${website} se ha parado.`) );
 monitor.on('error', (error) => console.log(error));
 
 //-----------------------------------------------------
-
-//TOKEN//
-bot.login(process.env.DISCORD_TOKEN);
