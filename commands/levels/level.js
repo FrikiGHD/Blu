@@ -3,7 +3,7 @@ const Levels = require('discord-xp');
 module.exports = {
     name: 'nivel',
     description: 'Menciona el nivel al que ha subido un usuario',
-    async execute(bot, message, args) {
+    async run (bot, message, args) {
         let mentionedMember = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
         if (!mentionedMember) mentionedMember = message.member;
 

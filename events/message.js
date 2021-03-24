@@ -23,7 +23,7 @@ module.exports = {
             const command = bot.commands.get(commandName);
 
             try {
-                command.execute(bot, message, args);
+                command.run(bot, message, args);
             } catch (err){
                 console.log(err);
             }

@@ -3,7 +3,7 @@ const Levels = require('discord-xp');
 module.exports = {
     name: 'clasificacion',
     description: 'Muestra el top 5 de usuarios por niveles',
-    async execute(bot, message, args) {
+    async run (bot, message, args) {
         const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 5);
 
         if (rawLeaderboard.length < 1) return reply("No hay nadie en la tabla de clasificación aún.");
