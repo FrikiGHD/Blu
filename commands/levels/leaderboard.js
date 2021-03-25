@@ -1,7 +1,7 @@
 const Levels = require('discord-xp');
 
 module.exports = {
-    name: 'clasificacion',
+    name: 'ranking',
     description: 'Muestra el top 5 de usuarios por niveles',
     async run (bot, message, args) {
         const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 5);

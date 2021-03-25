@@ -24,6 +24,10 @@ module.exports = {
             value: '`snipe` | `bonk` | `simp` | `ppt` | `meme`',
         },
         {
+            name: 'Sistema de niveles',
+            value: '`nivel` | `ranking` | `rango`',
+        },
+        {
             name: 'Moderación',
             value: '`ban` | `kick` | `warn` | `purge` | `mute & unmute`',
         },)

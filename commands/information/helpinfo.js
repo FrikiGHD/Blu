@@ -11,7 +11,7 @@ module.exports = {
         .setColor(0xB95CD5)
         .setTitle('Información del bot')
         .addField('**Prefijo**', 'El prefijo del bot es: `b!`')
-        .addField('**Páginas**', 'Comandos: `Información` | `Diversión` | `Moderación`')
+        .addField('**Páginas**', 'Comandos: `Información` | `Diversión` | `Niveles` | `Moderación`')
         .addField('**Navegación**', 'Usa las flechas de abajo para navegar entre páginas ☜(⌒▽⌒)☞')
 
         const Information = new Discord.MessageEmbed()
@@ -30,6 +30,13 @@ module.exports = {
         .addField('`b!ppt`', 'Sirve para jugar a piedra, papel y tijieras')
         .addField('`b!meme`', 'Muestra un meme aleatorio')
 
+        const Level = new Discord.MessageEmbed()
+        .setColor(0xC78E1D)
+        .setTitle('Niveles')
+        .addField('`b!nivel`', 'Muestra tu nivel o el de un usuario')
+        .addField('`b!ranking`', 'Muestra una lista con el top 5 de usuarios por niveles')
+        .addField('`b!rango`', 'Muestra una targeta con tu rango y nivel')
+
         const Moderation = new Discord.MessageEmbed()
         .setColor(0x52116F)
         .setTitle('Moderación (solo moderadores)')
@@ -43,6 +50,7 @@ module.exports = {
             BotInfo,
             Information,
             Fun,
+            Level,
             Moderation,
         ]
 
