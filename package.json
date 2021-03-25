@@ -9,6 +9,7 @@
   "author": "FrikiHD",
   "license": "ISC",
   "dependencies": {
+    "canvas": "^2.7.0",
     "discord-xp": "^1.1.10",
     "discord.js": "^12.5.1",
     "discord.js-pagination": "^1.0.3",
