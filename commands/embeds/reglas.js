@@ -8,11 +8,15 @@ module.exports = {
 
         if (!message.member.roles.cache.has('814171986598690857')) return message.channel.send("No puedes usar este comando （︶^︶）");
 
-        const reglas = new Discord.MessageEmbed()
+        const channel = '814170191285846026';
+        const check = '✅';
+        const Miembro = message.guild.roles.cache.find(role => role.name === "Miembro");
+
+        let reglas = new Discord.MessageEmbed()
         .setImage('https://i.imgur.com/mQ4MVV1.png')
         .setColor('0xE97E1F');
 
-        const reglases = new Discord.MessageEmbed()
+        let reglases = new Discord.MessageEmbed()
         .setTitle('**REGLAS DEL SERVIDOR**')
         .setColor('0xE97E1F')
         .setThumbnail('https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/emoji-one/5/flag-for-spain_1f1ea-1f1f8.png')
@@ -26,7 +30,7 @@ module.exports = {
             {name: '__Regla 6__', value: 'No hagas spam sobre apps, sitios, etc.'},
             {name: '__Regla 7__', value: 'Y sobretodo, pásatelo bien ;3 \n \n Reacciona con ✅ para desbloquear los canales\n(si no funciona, escríbele a un moderador)'},);
         
-        const reglasen = new Discord.MessageEmbed()
+        let reglasen = new Discord.MessageEmbed()
         .setTitle('**SERVER RULES**')
         .setColor('0xE97E1F')
         .setThumbnail('https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/281/flag-united-states_1f1fa-1f1f8.png')
@@ -40,6 +44,38 @@ module.exports = {
             {name: '__Rule 6__', value: `Don't spam apps, sites, etc.`},
             {name: '__Rule 7__', value: `And most importantly, have fun ;3 \n \n React with ✅ to unlock channels\n(if it doesn't work, dm a moderator)`},);
 
-        await message.channel.send(reglas).then(message.channel.send(reglases)).then(message.channel.send(reglasen));
+            await message.channel.send(reglas).then(message.channel.send(reglases))
+            let reglasembed = await message.channel.send(reglasen)
+            reglasembed.react(check)
+
+            bot.on('messageReactionAdd', async (reaction, user) => {
+                if (reaction.message.partial) await reaction.message.fetch();
+                if (reaction.partial) await reaction.fetch();
+                if (user.bot) return;
+                if (!reaction.message.guild) return;
+    
+                if (reaction.message.channel.id == channel) {
+                    if (reaction.emoji.name === check) {
+                        await reaction.message.guild.members.cache.get(user.id).roles.add(Miembro);
+                    }
+                } else {
+                    return;
+                }
+            });
+    
+            bot.on('messageReactionRemove', async (reaction, user) => {
+                if (reaction.message.partial) await reaction.message.fetch();
+                if (reaction.partial) await reaction.fetch();
+                if (user.bot) return;
+                if (!reaction.message.guild) return;
+    
+                if (reaction.message.channel.id == channel) {
+                    if (reaction.emoji.name === check) {
+                        await reaction.message.guild.members.cache.get(user.id).roles.remove(Miembro);
+                    }
+                } else {
+                    return;
+                }
+            });
+        }
     }
-}

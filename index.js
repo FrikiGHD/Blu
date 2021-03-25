@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const bot = new Discord.Client();
+const bot = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION" ]});
 const { readdirSync } = require('fs');
 const { join } = require('path');
 const { runInContext } = require('vm');

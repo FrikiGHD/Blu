@@ -27,5 +27,9 @@ module.exports = {
             } catch (err){
                 console.log(err);
             }
+
+            if (command === 'reactionrole') {
+                bot.commands.get('reactionrole').run(bot, message, args);
+            } 
         }
 }
