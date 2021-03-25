@@ -4,6 +4,7 @@ const { readdirSync } = require('fs');
 const { join } = require('path');
 const { runInContext } = require('vm');
 const Levels = require('discord-xp');
+const Canvacord = require('canvacord');
 const newUsers = new Discord.Collection();
 const sniped = require("./events/messageDelete.js");
 const mongoose = require('./database/mongoose');
