@@ -11,7 +11,7 @@ module.exports = {
         if (!target) return message.channel.send('El miembro no tiene ningún nivel establecido o(゜ヘ゜o)');
 
         try {
-            message.channel.send(`${mentionedMember.user.tag} está en el nivel ${target.level} y tiene ${target.xp}/${Levels.xpFor(target.level + 1)} de experiencia`)
+            message.channel.send(`> ${mentionedMember.user.tag} está en el nivel ${target.level} y tiene ${target.xp}/${Levels.xpFor(target.level + 1)} de experiencia`)
         } catch (err) {
             console.log(err);
         }
