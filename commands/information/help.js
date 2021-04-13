@@ -21,7 +21,7 @@ module.exports = {
         },
         {
             name: 'Diversión',
-            value: '`snipe` | `bonk` | `simp` | `ppt` | `meme`',
+            value: '`snipe` | `simp` | `ppt` | `meme` | `bonk` | `cry` | `hi` | `pat`',
         },
         {
             name: 'Sistema de niveles',

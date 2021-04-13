@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 
 module.exports = {
-    name: "hola",
+    name: "hi",
     description: "Blu mencionará a un usuario para saludarlo",
 
     async run (bot, message, args) {
