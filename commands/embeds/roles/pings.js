@@ -9,7 +9,7 @@ module.exports = {
         if (!message.member.roles.cache.has('814171986598690857')) return message.channel.send("No puedes usar este comando （︶^︶）");
         const anuncios = bot.channels.cache.get('814240903316111391')
         
-        const channel = '817541794039595038';
+        const channelID = '817541794039595038';
         const weeklymoji = '⭐';
         const gamenightsemoji = '🕹️';
         const weekly = message.guild.roles.cache.find(role => role.name === "Curiosidades Semanales");
@@ -39,7 +39,7 @@ module.exports = {
             if (user.bot) return;
             if (!reaction.message.guild) return;
 
-            if (reaction.message.channel.id == channel) {
+            if (reaction.message.channel.id == channelID) {
                 if (reaction.emoji.name === weeklymoji) {
                     await reaction.message.guild.members.cache.get(user.id).roles.add(weekly);
                 }
@@ -57,7 +57,7 @@ module.exports = {
             if (user.bot) return;
             if (!reaction.message.guild) return;
 
-            if (reaction.message.channel.id == channel) {
+            if (reaction.message.channel.id == channelID) {
                 if (reaction.emoji.name === weeklymoji) {
                     await reaction.message.guild.members.cache.get(user.id).roles.remove(weekly);
                 }

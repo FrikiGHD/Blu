@@ -7,7 +7,7 @@ module.exports = {
     async run (bot, message, args) {
         if (!message.member.roles.cache.has('814171986598690857')) return message.channel.send("No puedes usar este comando （︶^︶）");
 
-        const channel = '817541794039595038';
+        const channelID = '817541794039595038';
         const artistemoji = '🎨';
         const otakuemoji = '⛩️';
         const gameremoji = '🎮';
@@ -43,7 +43,7 @@ module.exports = {
             if (user.bot) return;
             if (!reaction.message.guild) return;
 
-            if (reaction.message.channel.id == channel) {
+            if (reaction.message.channel.id == channelID) {
                 if (reaction.emoji.name === artistemoji) {
                     await reaction.message.guild.members.cache.get(user.id).roles.add(artista);
                 }
@@ -64,7 +64,7 @@ module.exports = {
             if (user.bot) return;
             if (!reaction.message.guild) return;
 
-            if (reaction.message.channel.id == channel) {
+            if (reaction.message.channel.id == channelID) {
                 if (reaction.emoji.name === artistemoji) {
                     await reaction.message.guild.members.cache.get(user.id).roles.remove(artista);
                 }

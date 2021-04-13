@@ -8,7 +8,7 @@ module.exports = {
 
         if (!message.member.roles.cache.has('814171986598690857')) return message.channel.send("No puedes usar este comando （︶^︶）");
 
-        const channel = '814170191285846026';
+        const channelID = '814170191285846026';
         const check = '✅';
         const Miembro = message.guild.roles.cache.find(role => role.name === "Miembro");
 
@@ -54,7 +54,7 @@ module.exports = {
                 if (user.bot) return;
                 if (!reaction.message.guild) return;
     
-                if (reaction.message.channel.id == channel) {
+                if (reaction.message.channel.id == channelID) {
                     if (reaction.emoji.name === check) {
                         await reaction.message.guild.members.cache.get(user.id).roles.add(Miembro);
                     }
@@ -69,7 +69,7 @@ module.exports = {
                 if (user.bot) return;
                 if (!reaction.message.guild) return;
     
-                if (reaction.message.channel.id == channel) {
+                if (reaction.message.channel.id == channelID) {
                     if (reaction.emoji.name === check) {
                         await reaction.message.guild.members.cache.get(user.id).roles.remove(Miembro);
                     }

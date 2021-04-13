@@ -8,7 +8,7 @@ module.exports = {
 
         if (!message.member.roles.cache.has('814171986598690857')) return message.channel.send("No puedes usar este comando （︶^︶）");
         
-        const channel = '817541794039595038';
+        const channelID = '817541794039595038';
         const esemoji = '🇪🇸';
         const enemoji = '🇺🇸';
         const es = message.guild.roles.cache.find(role => role.name === "Español");
@@ -38,7 +38,7 @@ module.exports = {
             if (user.bot) return;
             if (!reaction.message.guild) return;
 
-            if (reaction.message.channel.id == channel) {
+            if (reaction.message.channel.id == channelID) {
                 if (reaction.emoji.name === esemoji) {
                     await reaction.message.guild.members.cache.get(user.id).roles.add(es);
                 }
@@ -56,7 +56,7 @@ module.exports = {
             if (user.bot) return;
             if (!reaction.message.guild) return;
 
-            if (reaction.message.channel.id == channel) {
+            if (reaction.message.channel.id == channelID) {
                 if (reaction.emoji.name === esemoji) {
                     await reaction.message.guild.members.cache.get(user.id).roles.remove(es);
                 }
