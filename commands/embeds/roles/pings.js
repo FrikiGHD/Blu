@@ -30,8 +30,8 @@ module.exports = {
         })
 
         let pingsembed = await message.channel.send(pings)
-        pingsembed.react(weeklymoji)
-        pingsembed.react(gamenightsemoji)
+        await pingsembed.react(weeklymoji)
+        await pingsembed.react(gamenightsemoji)
         
         bot.on('messageReactionAdd', async (reaction, user) => {
             if (reaction.message.partial) await reaction.message.fetch();

@@ -29,8 +29,8 @@ module.exports = {
         })
 
         let langembed = await message.channel.send(roleslang)
-        langembed.react(esemoji)
-        langembed.react(enemoji)
+        await langembed.react(esemoji)
+        await langembed.react(enemoji)
 
         bot.on('messageReactionAdd', async (reaction, user) => {
             if (reaction.message.partial) await reaction.message.fetch();

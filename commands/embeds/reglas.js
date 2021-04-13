@@ -46,7 +46,7 @@ module.exports = {
 
             await message.channel.send(reglas).then(message.channel.send(reglases))
             let reglasembed = await message.channel.send(reglasen)
-            reglasembed.react(check)
+            await reglasembed.react(check)
 
             bot.on('messageReactionAdd', async (reaction, user) => {
                 if (reaction.message.partial) await reaction.message.fetch();

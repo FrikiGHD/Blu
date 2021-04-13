@@ -33,9 +33,9 @@ module.exports = {
             value: `***ES*** - Rol para los gamers del servidor \n ***EN*** - Role for the gamers of the server`
         })
         let categoryrolesembed = await message.channel.send(categoryroles)
-        categoryrolesembed.react(artistemoji)
-        categoryrolesembed.react(otakuemoji)
-        categoryrolesembed.react(gameremoji)
+        await categoryrolesembed.react(artistemoji)
+        await categoryrolesembed.react(otakuemoji)
+        await categoryrolesembed.react(gameremoji)
 
         bot.on('messageReactionAdd', async (reaction, user) => {
             if (reaction.message.partial) await reaction.message.fetch();
