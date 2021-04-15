@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const bot = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION" ]});
+const bot = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
 const { readdirSync } = require('fs');
 const { join } = require('path');
 const { runInContext } = require('vm');
@@ -107,5 +107,3 @@ monitor.on('up', (res) => console.log(`${res.website} está encedido.`));
 monitor.on('down', (res) => console.log(`${res.website} se ha caído - ${res.statusMessage}`));
 monitor.on('stop', (website) => console.log(`${website} se ha parado.`) );
 monitor.on('error', (error) => console.log(error));
-
-//-----------------------------------------------------

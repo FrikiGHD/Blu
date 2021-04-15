@@ -1,4 +1,4 @@
-module.exports = (bot) => {
+module.exports = (bot, message) => {
     bot.on("messageDelete", async (message) => {
         bot.snipes.set(message.channel.id, {
             content: message.content,

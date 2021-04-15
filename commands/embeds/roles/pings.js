@@ -8,12 +8,6 @@ module.exports = {
 
         if (!message.member.roles.cache.has('814171986598690857')) return message.channel.send("No puedes usar este comando （︶^︶）");
         const anuncios = bot.channels.cache.get('814240903316111391')
-        
-        const channelID = '817541794039595038';
-        const weeklymoji = '⭐';
-        const gamenightsemoji = '🕹️';
-        const weekly = message.guild.roles.cache.find(role => role.name === "Curiosidades Semanales");
-        const gamenights = message.guild.roles.cache.find(role => role.name === "Gamenights");
 
         let pings = new Discord.MessageEmbed()
         .setTitle('**PINGS**')
@@ -29,44 +23,6 @@ module.exports = {
             value: `***ES*** - Rol para ser mencionado cuando se haga un anuncio de "noche de juegos" \n ***EN*** - Role to be mentioned when there's a gamenight announcement`
         })
 
-        let pingsembed = await message.channel.send(pings)
-        await pingsembed.react(weeklymoji)
-        await pingsembed.react(gamenightsemoji)
-        
-        bot.on('messageReactionAdd', async (reaction, user) => {
-            if (reaction.message.partial) await reaction.message.fetch();
-            if (reaction.partial) await reaction.fetch();
-            if (user.bot) return;
-            if (!reaction.message.guild) return;
-
-            if (reaction.message.channel.id == channelID) {
-                if (reaction.emoji.name === weeklymoji) {
-                    await reaction.message.guild.members.cache.get(user.id).roles.add(weekly);
-                }
-                if (reaction.emoji.name === gamenightsemoji) {
-                    await reaction.message.guild.members.cache.get(user.id).roles.add(gamenights);
-                }
-            } else {
-                return;
-            }
-        });
-
-        bot.on('messageReactionRemove', async (reaction, user) => {
-            if (reaction.message.partial) await reaction.message.fetch();
-            if (reaction.partial) await reaction.fetch();
-            if (user.bot) return;
-            if (!reaction.message.guild) return;
-
-            if (reaction.message.channel.id == channelID) {
-                if (reaction.emoji.name === weeklymoji) {
-                    await reaction.message.guild.members.cache.get(user.id).roles.remove(weekly);
-                }
-                if (reaction.emoji.name === gamenightsemoji) {
-                    await reaction.message.guild.members.cache.get(user.id).roles.remove(gamenights);
-                }
-            } else {
-                return;
-            }
-        });
+        await message.channel.send(pings)
     }
 }

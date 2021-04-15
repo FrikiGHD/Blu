@@ -8,9 +8,6 @@ module.exports = {
 
         if (!message.member.roles.cache.has('814171986598690857')) return message.channel.send("No puedes usar este comando （︶^︶）");
 
-        const channelID = '814170191285846026';
-        const check = '✅';
-        const Miembro = message.guild.roles.cache.find(role => role.name === "Miembro");
 
         let reglas = new Discord.MessageEmbed()
         .setImage('https://i.imgur.com/mQ4MVV1.png')
@@ -44,38 +41,6 @@ module.exports = {
             {name: '__Rule 6__', value: `Don't spam apps, sites, etc.`},
             {name: '__Rule 7__', value: `And most importantly, have fun ;3 \n \n React with ✅ to unlock channels\n(if it doesn't work, dm a moderator)`},);
 
-            await message.channel.send(reglas).then(message.channel.send(reglases))
-            let reglasembed = await message.channel.send(reglasen)
-            await reglasembed.react(check)
-
-            bot.on('messageReactionAdd', async (reaction, user) => {
-                if (reaction.message.partial) await reaction.message.fetch();
-                if (reaction.partial) await reaction.fetch();
-                if (user.bot) return;
-                if (!reaction.message.guild) return;
-    
-                if (reaction.message.channel.id == channelID) {
-                    if (reaction.emoji.name === check) {
-                        await reaction.message.guild.members.cache.get(user.id).roles.add(Miembro);
-                    }
-                } else {
-                    return;
-                }
-            });
-    
-            bot.on('messageReactionRemove', async (reaction, user) => {
-                if (reaction.message.partial) await reaction.message.fetch();
-                if (reaction.partial) await reaction.fetch();
-                if (user.bot) return;
-                if (!reaction.message.guild) return;
-    
-                if (reaction.message.channel.id == channelID) {
-                    if (reaction.emoji.name === check) {
-                        await reaction.message.guild.members.cache.get(user.id).roles.remove(Miembro);
-                    }
-                } else {
-                    return;
-                }
-            });
-        }
+            await message.channel.send(reglas).then(message.channel.send(reglases).then(message.channel.send(reglasen)))
     }
+}
