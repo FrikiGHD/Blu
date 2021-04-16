@@ -13,79 +13,79 @@ module.exports = {
             message.channel.send(`¡${message.member} ha subido al nivel ${user.level}! ✧o(＾▽＾)o✧`);
 
             if (user.level == 5) {
-                let role = message.guild.roles.cache.find(role => role.id == "832633898550820864");
+                let role = message.guild.roles.cache.find(role => role.name == "Sänger");
                 if (message.member.roles.cache.has(role.id)) return;
                 else await message.member.roles.add(role.id);
             }
 
             if (user.level == 15) {
-                let role = message.guild.roles.cache.find(role => role.id == "832633618814861333");
+                let role = message.guild.roles.cache.find(role => role.name == "Kurier");
                 if (message.member.roles.cache.has(role.id)) return;
                 else await message.member.roles.add(role.id);
             }
 
             if (user.level == 25) {
-                let role = message.guild.roles.cache.find(role => role.id == "832633387570954273");
+                let role = message.guild.roles.cache.find(role => role.name == "Zahmen");
                 if (message.member.roles.cache.has(role.id)) return;
                 else await message.member.roles.add(role.id);
             }
 
             if (user.level == 35) {
-                let role = message.guild.roles.cache.find(role => role.id == "832632886179266562");
+                let role = message.guild.roles.cache.find(role => role.name == "Schmied");
                 if (message.member.roles.cache.has(role.id)) return;
                 else await message.member.roles.add(role.id);
             }
 
             if (user.level == 45) {
-                let role = message.guild.roles.cache.find(role => role.id == "832632668994535424");
+                let role = message.guild.roles.cache.find(role => role.name == "Krieger");
                 if (message.member.roles.cache.has(role.id)) return;
                 else await message.member.roles.add(role.id);
             }
 
             if (user.level == 55) {
-                let role = message.guild.roles.cache.find(role => role.id == "832632419760603246");
+                let role = message.guild.roles.cache.find(role => role.name == "Lieger");
                 if (message.member.roles.cache.has(role.id)) return;
                 else await message.member.roles.add(role.id);
             }
 
             if (user.level == 60) {
-                let role = message.guild.roles.cache.find(role => role.id == "832632104055603201");
+                let role = message.guild.roles.cache.find(role => role.name == "Stätte");
                 if (message.member.roles.cache.has(role.id)) return;
                 else await message.member.roles.add(role.id);
             }
 
             if (user.level == 65) {
-                let role = message.guild.roles.cache.find(role => role.id == "832631853243695134");
+                let role = message.guild.roles.cache.find(role => role.name == "Heilen");
                 if (message.member.roles.cache.has(role.id)) return;
                 else await message.member.roles.add(role.id);
             }
 
             if (user.level == 70) {
-                let role = message.guild.roles.cache.find(role => role.id == "832631495755563049");
+                let role = message.guild.roles.cache.find(role => role.name == "Portal");
                 if (message.member.roles.cache.has(role.id)) return;
                 else await message.member.roles.add(role.id);
             }
             
             if (user.level == 75) {
-                let role = message.guild.roles.cache.find(role => role.id == "832631309590986822");
+                let role = message.guild.roles.cache.find(role => role.name == "Kontrolle");
                 if (message.member.roles.cache.has(role.id)) return;
                 else await message.member.roles.add(role.id);
             }
 
             if (user.level == 85) {
-                let role = message.guild.roles.cache.find(role => role.id == "832631065415778385");
+                let role = message.guild.roles.cache.find(role => role.name == "Herrschen");
                 if (message.member.roles.cache.has(role.id)) return;
                 else await message.member.roles.add(role.id);
             }
 
             if (user.level == 100) {
-                let role = message.guild.roles.cache.find(role => role.id == "832630796552372254");
+                let role = message.guild.roles.cache.find(role => role.name == "Wissen");
                 if (message.member.roles.cache.has(role.id)) return;
                 else await message.member.roles.add(role.id);
             }
 
             if (user.level == 125) {
-                let role = message.guild.roles.cache.find(role => role.id == "832630371337109584");
+                let role = message.guild.roles.cache.find(role => role.name == "Können");
                 if (message.member.roles.cache.has(role.id)) return;
                 else await message.member.roles.add(role.id);
             }
