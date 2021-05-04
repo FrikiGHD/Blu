@@ -81,42 +81,19 @@ client.on('guildMemberRemove', async(member) => {
     channel.send(`<@${member.id}> se ha ido del servidor /(ㄒoㄒ)/~~`);
 })
 
-//-------------------- ECONOMY SYSTEM --------------------\\
+//-------------------- REPLIT MONITOR --------------------\\
 
-const coinSchema = require('./Schema/Coins');
-client.bal = (userId) => new Promise(async ful => {
-  const data = await coinSchema.findOne({ userId });
-  if(!data) return ful(0);
-  ful(data.coins);
-})
-
-client.add = (userId, coins) => {
-  coinSchema.findOne({ userId }, async (err, data) => {
-    if(err) throw err;
-    if(data) {
-      data.coins += coins;
-    } else {
-      data = new BalanceSchema({
-        userId,
-        coins
-      })
-    }
-    data.save();
-  })
-}
-
-client.remove = (userId, coins) => {
-  coinSchema.findOne({ userId }, async (err, data) => {
-    if(err) throw err;
-    if(data) {
-      data.coins -= coins;
-    } else {
-      data = new BalanceSchema({
-        userId,
-        coins: -coins
-        
-      })
-    }
-    data.save();
-  })
-}
+const keepAlive = require('./server');
+const Monitor = require('ping-monitor');
+ 
+keepAlive();
+const monitor = new Monitor({
+    website: 'LINK',
+    title: 'Nombre',
+    interval: 30 // minutes
+});
+ 
+monitor.on('up', (res) => console.log(`${res.website} está encedido.`));
+monitor.on('down', (res) => console.log(`${res.website} se ha caído - ${res.statusMessage}`));
+monitor.on('stop', (website) => console.log(`${website} se ha parado.`) );
+monitor.on('error', (error) => console.log(error));
