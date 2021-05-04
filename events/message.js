@@ -7,6 +7,9 @@ module.exports = {
     name: 'message',
 
     async execute(message, client) {
+        if(message.author.bot) return;
+        if(message.channel.type === 'dm') return;
+        
         if (message.content.startsWith(client.prefix)) {
         const args = message.content.slice(client.prefix.length).trim().split(/ +/);
         const commandName = args.shift().toLowerCase();

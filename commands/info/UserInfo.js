@@ -19,7 +19,6 @@ module.exports = {
             .addField(`· __Nametag:__`, `${member.user.tag}`, true)
             .addField(`· __Apodo:__`, `${member.nickname || `Ninguno`}`, true)
             .addField(`· __ID de Usuario:__`, `${member.id}`, false)
-            .addField(`· __Roles:__`, `${roles.length < 10 ? roles.join(', ') : roles.length > 10 ? this.client.utils.trimArray(roles) : 'Ninguno'}`, true)
             .addField(`· __Fecha de creación:__`, `${moment(member.user.createdTimestamp).format('DD, MMM Do YYYY')}`, false)
             .addField(`· __Fecha de unión al servidor:__`, `${moment(member.joinedAt).format('DD, MMM Do YYYY')}`, true);
 
