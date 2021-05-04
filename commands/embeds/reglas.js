@@ -4,10 +4,9 @@ module.exports = {
     name: "reglas",
     description: "crear reglas para obtener el rol de miembro",
 
-    async run (bot, message, args) {
-
-        if (!message.member.roles.cache.has('814171986598690857')) return message.channel.send("No puedes usar este comando （︶^︶）");
-
+    async run (client, message, args) {
+        if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(`No puedes utilizar este comando o(一︿一+)o`);
+        if (!message.guild.me.hasPermission("MANAGE_MESSAGES")) return message.channel.send(`No tengo los permisos necesarios (ˉ▽ˉ；)...`);
 
         let reglas = new Discord.MessageEmbed()
         .setImage('https://i.imgur.com/mQ4MVV1.png')

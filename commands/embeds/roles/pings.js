@@ -4,10 +4,10 @@ module.exports = {
     name: "pings",
     description: "crear roles para los pings",
 
-    async run (bot, message, args) {
-
-        if (!message.member.roles.cache.has('814171986598690857')) return message.channel.send("No puedes usar este comando （︶^︶）");
-        const anuncios = bot.channels.cache.get('814240903316111391')
+    async run (client, message, args) {
+        if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(`No puedes utilizar este comando o(一︿一+)o`);
+        if (!message.guild.me.hasPermission("MANAGE_MESSAGES")) return message.channel.send(`No tengo los permisos necesarios (ˉ▽ˉ；)...`);
+        const anuncios = client.channels.cache.get('814240903316111391')
 
         let pings = new Discord.MessageEmbed()
         .setTitle('**PINGS**')

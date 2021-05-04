@@ -4,8 +4,9 @@ module.exports = {
     name: "categoryroles",
     description: "crear roles de categorías para los canales ocultos",
 
-    async run (bot, message, args) {
-        if (!message.member.roles.cache.has('814171986598690857')) return message.channel.send("No puedes usar este comando （︶^︶）");
+    async run (client, message, args) {
+        if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(`No puedes utilizar este comando o(一︿一+)o`);
+        if (!message.guild.me.hasPermission("MANAGE_MESSAGES")) return message.channel.send(`No tengo los permisos necesarios (ˉ▽ˉ；)...`);
 
         let categoryroles = new Discord.MessageEmbed()
         .setTitle('**ROLES DE CATEGORÍAS**')
@@ -23,7 +24,11 @@ module.exports = {
         {
             name: '__Gamers__ | 🎮',
             value: `***ES*** - Rol para los gamers del servidor \n ***EN*** - Role for the gamers of the server`
-        })
+        },
+        {
+            name: '__Escritores__ | 📖',
+            value: `***ES*** - Rol para los amantes de la escritura \n ***EN*** - Role for the writing lovers`
+        });
         await message.channel.send(categoryroles)
     }
 }

@@ -4,9 +4,9 @@ module.exports = {
     name: "info",
     description: "crear un embed de información",
 
-    async run (bot, message, args) {
-
-        if (!message.member.roles.cache.has('814171986598690857')) return message.channel.send("No puedes usar este comando （︶^︶）");
+    async run (client, message, args) {
+        if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(`No puedes utilizar este comando o(一︿一+)o`);
+        if (!message.guild.me.hasPermission("MANAGE_MESSAGES")) return message.channel.send(`No tengo los permisos necesarios (ˉ▽ˉ；)...`);
 
         let infoes = new Discord.MessageEmbed()
         .setAuthor('Laraartss', 'https://i.imgur.com/W8Xsaex.jpg')
