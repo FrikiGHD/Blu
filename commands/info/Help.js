@@ -26,6 +26,7 @@ module.exports = {
             .setTitle('__Diversión__')
             .addField('`b!simp`', 'Muestra cuan simp eres')
             .addField('`b!rps`', 'Sirve para jugar a piedra, papel y tijieras')
+            .addField('`b!snipe`', 'Recupera un mensaje eliminado recientemente')
             .addField('`b!meme`', 'Muestra un meme aleatorio')
             .addField('\u200B', '\u200B')
             .addField('Diversión', '(*Reacciones*)')

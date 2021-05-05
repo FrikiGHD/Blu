@@ -6,6 +6,7 @@ module.exports = {
     description: 'Muestra información del usuario',
   
     async run(client, message, args) {
+        moment.locale('es');
         const member = message.mentions.members.first() || message.member;
 		const roles = member.roles.cache
 			.sort((a, b) => b.position - a.position)
@@ -19,8 +20,8 @@ module.exports = {
             .addField(`· __Nametag:__`, `${member.user.tag}`, true)
             .addField(`· __Apodo:__`, `${member.nickname || `Ninguno`}`, true)
             .addField(`· __ID de Usuario:__`, `${member.id}`, false)
-            .addField(`· __Fecha de creación:__`, `${moment(member.user.createdTimestamp).format('DD, MMM Do YYYY')}`, false)
-            .addField(`· __Fecha de unión al servidor:__`, `${moment(member.joinedAt).format('DD, MMM Do YYYY')}`, true);
+            .addField(`· __Fecha de creación:__`, `${moment(member.user.createdTimestamp).format('LLL')}`, false)
+            .addField(`· __Fecha de unión al servidor:__`, `${moment(member.joinedAt).format('LLL')}`, true);
 
         message.channel.send(userinfoembed);
     },
