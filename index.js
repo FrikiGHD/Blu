@@ -5,11 +5,14 @@ const { readdirSync } = require('fs');
 const { join } = require('path');
 const Levels = require('discord-xp');
 const canvacord = require('canvacord');
+const sniped = require("./events/messageDelete.js");
 const mongoose = require('./commands/database/mongoose');
 mongoose.init();
 Levels.setURL(`mongodb+srv://FrikiHD:${process.env.PASS}@blu.iaaoq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`);
 
 client.commands = new Discord.Collection();
+client.snipes = new Discord.Collection();
+sniped(client)
 client.on("error", console.error);
 client.prefix = process.env.prefix;
 client.login(process.env.token);
@@ -81,19 +84,42 @@ client.on('guildMemberRemove', async(member) => {
     channel.send(`<@${member.id}> se ha ido del servidor /(ㄒoㄒ)/~~`);
 })
 
-//-------------------- REPLIT MONITOR --------------------\\
+//-------------------- ECONOMY SYSTEM --------------------\\
 
-const keepAlive = require('./server');
-const Monitor = require('ping-monitor');
- 
-keepAlive();
-const monitor = new Monitor({
-    website: 'LINK',
-    title: 'Nombre',
-    interval: 30 // minutes
-});
- 
-monitor.on('up', (res) => console.log(`${res.website} está encedido.`));
-monitor.on('down', (res) => console.log(`${res.website} se ha caído - ${res.statusMessage}`));
-monitor.on('stop', (website) => console.log(`${website} se ha parado.`) );
-monitor.on('error', (error) => console.log(error));
+const coinSchema = require('./Schema/Coins');
+client.bal = (userId) => new Promise(async ful => {
+  const data = await coinSchema.findOne({ userId });
+  if(!data) return ful(0);
+  ful(data.coins);
+})
+
+client.add = (userId, coins) => {
+  coinSchema.findOne({ userId }, async (err, data) => {
+    if(err) throw err;
+    if(data) {
+      data.coins += coins;
+    } else {
+      data = new BalanceSchema({
+        userId,
+        coins
+      })
+    }
+    data.save();
+  })
+}
+
+client.remove = (userId, coins) => {
+  coinSchema.findOne({ userId }, async (err, data) => {
+    if(err) throw err;
+    if(data) {
+      data.coins -= coins;
+    } else {
+      data = new BalanceSchema({
+        userId,
+        coins: -coins
+        
+      })
+    }
+    data.save();
+  })
+}
