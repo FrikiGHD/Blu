@@ -46,6 +46,7 @@ module.exports = {
             .addField('`b!ban`', 'Banea a un usuario | [Formato: b!ban @usuario razón]')
             .addField('`b!purge`', 'Elimina un número de mensajes de un canal | \n [Formato: b!purge (número entero del 2-100)]')
             .addField('`b!mute & b!unmute`', 'Mutea y desmutea a un usuario | [Formato: b!mute @usuario razón]')
+            .addField('`b!say`', 'Blu dirá lo que escribas por tí (puedes mencionar canales)')
     
             const Pages = [
                 BotInfo,
