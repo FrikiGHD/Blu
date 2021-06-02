@@ -14,6 +14,6 @@ module.exports = {
         .addField("🇪🇸 | Español", `Usa este enlace para invitar a gente al servidor de DBDN`)
         .addField("🇺🇸 | English", `Use this link to invite people into DBDN server`)
 
-        await message.channel.send(servercode).then(message.channel.send("https://discord.gg/GyREVDhVX7"))
+        await message.channel.send(servercode).then(message.channel.send("https://discord.com/invite/HxtfVBrEeE"))
     }
 }
